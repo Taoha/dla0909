@@ -24,6 +24,7 @@ import java.util.List;
  * Created by imac on 16/11/24.
  */
 public class HomeFragment extends BaseFragment {
+    //adada
     private TabLayout tabLayout;
     private ViewPager viewPager;
     private List<TitleBean.DataBean.ChannelsBean> data;
