@@ -25,6 +25,7 @@ import java.util.List;
  */
 public class HomeFragment extends BaseFragment {
     //adada
+    //uio
     private TabLayout tabLayout;
     private ViewPager viewPager;
     private List<TitleBean.DataBean.ChannelsBean> data;
