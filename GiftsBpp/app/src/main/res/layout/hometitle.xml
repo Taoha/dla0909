@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/fifty"
+    android:background="@color/colorAccent">
+    <ImageView
+        android:layout_width="@dimen/forty"
+        android:layout_height="@dimen/twenty"
+        android:layout_marginLeft="@dimen/ten"
+        android:layout_marginTop="@dimen/sixteen"
+        android:src="@mipmap/ig_logo_text" />
+    <TextView
+        android:id="@+id/et_name"
+        android:layout_width="@dimen/zero"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/ten"
+        android:layout_weight="1"
+        android:background="@drawable/file__edit_name"
+        android:drawableLeft="@mipmap/abc_ic_search_api_holo_light"
+        android:drawablePadding="@dimen/ten"
+        android:paddingLeft="@dimen/ten" />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/fifty"
+        android:layout_marginRight="@dimen/ten"
+        android:id="@+id/image_home_one"
+        android:src="@mipmap/icon_gift_send_remind"/>
+
+
+
+</LinearLayout>

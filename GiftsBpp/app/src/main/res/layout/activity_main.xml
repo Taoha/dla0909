@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.imac.giftsbpp.activity.MainActivity">
+
+    <FrameLayout
+        android:id="@+id/replace"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/zero"
+        android:layout_weight="1"/>
+
+    <RadioGroup
+        android:id="@+id/main_Group"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/fifty"
+        android:orientation="horizontal">
+
+    <RadioButton
+        android:drawableTop="@drawable/home"
+        android:button="@null"
+        android:id="@+id/Rbtn_home"
+        android:layout_width="@dimen/zero"
+        android:layout_height="@dimen/fifty"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="@string/home"/>
+
+    <RadioButton
+        android:drawableTop="@drawable/hotspot"
+        android:button="@null"
+        android:text="@string/gift"
+        android:id="@+id/Rbtn_hotspot"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        android:gravity="center" />
+
+    <RadioButton
+        android:drawableTop="@drawable/classification"
+        android:id="@+id/Rbtn_classify"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:button="@null"
+        android:text="@string/category"/>
+
+    <RadioButton
+        android:drawableTop="@drawable/my"
+        android:id="@+id/Rbtn_me"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:button="@null"
+        android:text="@string/profile"/>
+    </RadioGroup>
+</LinearLayout>
