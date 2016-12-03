@@ -1,11 +1,13 @@
 package com.example.imac.giftsbpp.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -16,19 +18,22 @@ import com.example.imac.giftsbpp.R;
 import com.example.imac.giftsbpp.reus.ViewpagerAdapter;
 import com.example.imac.giftsbpp.base.BaseFragment;
 import com.example.imac.giftsbpp.base.URLValues;
+import com.example.imac.giftsbpp.volley.NetHelper;
+import com.example.imac.giftsbpp.volley.NetListener;
 import com.google.gson.Gson;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by imac on 16/11/24.
  */
 public class HomeFragment extends BaseFragment {
-    //adada
-    //uio
+   private ImageView image_home_one;
     private TabLayout tabLayout;
     private ViewPager viewPager;
     private List<TitleBean.DataBean.ChannelsBean> data;
+
     @Override
     public int setlayout() {
         return R.layout.tab_viewpager;
@@ -36,45 +41,68 @@ public class HomeFragment extends BaseFragment {
 
     @Override
     public void initView(View view) {
+
         tabLayout = (TabLayout) view.findViewById(R.id.tb_home_top);
         viewPager = (ViewPager) view.findViewById(R.id.vp_home_top);
+        image_home_one =(ImageView)view.findViewById(R.id.image_home_one);
+
 
     }
 
     @Override
     public void initData() {
 
+
         request();
+
     }
 
     //标题的网络获取
     private void request() {
-        //创建网络请求
-        RequestQueue requestQueue = Volley.newRequestQueue(getContext());
-        StringRequest stringRequest = new StringRequest(URLValues.HOME_TITLE, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                Log.d("数据", response);
-                ViewpagerAdapter viewpagerAdapter = new ViewpagerAdapter(getChildFragmentManager());
-                //解析
-                Gson gson = new Gson();
-                TitleBean titleBean = gson.fromJson(response, TitleBean.class);
-                data = titleBean.getData().getChannels();
-                viewpagerAdapter.setData(data);
-                viewPager.setAdapter(viewpagerAdapter);
 
+
+        NetHelper.MyRequest(URLValues.HOME_TITLE, TitleBean.class, new NetListener<TitleBean>() {
+
+            @Override
+            public void successListener(TitleBean response) {
+
+
+                ViewpagerAdapter viewpagerAdapter = new ViewpagerAdapter(getChildFragmentManager());
+                viewpagerAdapter.setData(response);
+                viewPager.setAdapter(viewpagerAdapter);
                 tabLayout.setupWithViewPager(viewPager);
 
-
             }
-        }, new Response.ErrorListener() {
+
             @Override
-            public void onErrorResponse(VolleyError error) {
+            public void errorListener(VolleyError error) {
+
             }
         });
-        //把网络数据添加到请求队列中
-        requestQueue.add(stringRequest);
 
-        }
+
+//        //创建网络请求
+//        RequestQueue requestQueue = Volley.newRequestQueue(getContext());
+//        StringRequest stringRequest = new StringRequest(URLValues.HOME_TITLE, new Response.Listener<String>() {
+//            @Override
+//            public void onResponse(String response) {
+//                Log.d("数据", response);
+//                //解析
+//                Gson gson = new Gson();
+//                TitleBean titleBean = gson.fromJson(response, TitleBean.class);
+//                data = titleBean.getData().getChannels();
+//
+//
+//
+//            }
+//        }, new Response.ErrorListener() {
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//            }
+//        });
+//        //把网络数据添加到请求队列中
+//        requestQueue.add(stringRequest);
+
+    }
 
 }

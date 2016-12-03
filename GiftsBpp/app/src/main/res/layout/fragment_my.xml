@@ -8,6 +8,7 @@
             android:layout_height="wrap_content">
 
             <ImageView
+                android:scaleType="fitCenter"
                 android:id="@+id/iv_me_scan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -16,6 +17,8 @@
                 android:src="@mipmap/icon_scan_black" />
 
             <ImageView
+
+                android:scaleType="center"
                 android:id="@+id/iv_me_setting"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -24,20 +27,24 @@
                 android:src="@mipmap/icon_settings_black" />
         </RelativeLayout>
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:src="@mipmap/me_avatar_boy" />
+    <ImageView
+        android:scaleType="fitXY"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@mipmap/me_avatar_boy"
+        android:id="@+id/imageView2" />
 
-        <TextView
+    <TextView
+            android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="未登入"
-            android:textSize="20sp" />
+            android:textSize="15sp" />
 
         <LinearLayout
+            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -61,6 +68,7 @@
                     android:text="+86▼" />
 
                 <EditText
+                    android:textSize="15dp"
                     android:id="@+id/et_phoneNum"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -87,6 +95,7 @@
                         android:src="@mipmap/icon_bind_message" />
 
                     <EditText
+                        android:textSize="15dp"
                         android:id="@+id/et_phoneMess"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -110,12 +119,13 @@
 
 
             <Button
+                android:layout_marginTop="10dp"
                 android:id="@+id/btn_login"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
-                android:background="#D3D3D3"
+
                 android:text="登录" />
 
             <Button
@@ -130,6 +140,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -142,6 +153,7 @@
                 android:textSize="10sp" />
 
             <LinearLayout
+                android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">

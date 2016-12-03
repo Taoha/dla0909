@@ -7,7 +7,7 @@
     <com.youth.banner.Banner
         android:id="@+id/choic_banner"
         android:layout_width="match_parent"
-        android:layout_height="270dp"
+        android:layout_height="150dp"
         app:image_scale_type="fit_xy"/>
 
 </LinearLayout>

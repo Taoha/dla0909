@@ -12,6 +12,8 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.imac.giftsbpp.R;
 import com.example.imac.giftsbpp.base.BaseFragment;
+import com.example.imac.giftsbpp.volley.NetHelper;
+import com.example.imac.giftsbpp.volley.NetListener;
 import com.google.gson.Gson;
 
 /**
@@ -35,6 +37,7 @@ public class ReusFragment extends BaseFragment {
     @Override
     public void initData() {
         Bundle bundle = getArguments();
+        Log.d("少死机", getArguments()+"");
         String msg = bundle.get("key").toString();
         path = "http://api.liwushuo.com/v2/channels/" +
                 msg +
@@ -56,26 +59,39 @@ public class ReusFragment extends BaseFragment {
     }
 
     private void request() {
-        //创建网络请求
-        RequestQueue mRequestQueue = Volley.newRequestQueue(getContext());
-        StringRequest mStringRequest = new StringRequest(path, new Response.Listener<String>() {
+        NetHelper.MyRequest(path, ReusBean.class, new NetListener<ReusBean>() {
             @Override
-            public void onResponse(String response) {
-                Log.d("大傻逼", response);
+            public void successListener(ReusBean response) {
                 ReusViewAdapter reusViewAdapter = new ReusViewAdapter(getContext());
-                Gson gson = new Gson();
-                ReusBean reusBean = gson.fromJson(response, ReusBean.class);
-                reusViewAdapter.setReusBean(reusBean);
+                reusViewAdapter.setReusBean(response);
                 listView.setAdapter(reusViewAdapter);
+
             }
-        }, new Response.ErrorListener() {
+
             @Override
-            public void onErrorResponse(VolleyError error) {
+            public void errorListener(VolleyError error) {
 
             }
         });
-        //把网络请求添加到请求队列中
-        mRequestQueue.add(mStringRequest);
+        //创建网络请求
+//        RequestQueue mRequestQueue = Volley.newRequestQueue(getContext());
+//        StringRequest mStringRequest = new StringRequest(path, new Response.Listener<String>() {
+//            @Override
+//            public void onResponse(String response) {
+//                Log.d("大傻逼", response);
+//
+//                Gson gson = new Gson();
+//                ReusBean reusBean = gson.fromJson(response, ReusBean.class);
+//
+//            }
+//        }, new Response.ErrorListener() {
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//
+//            }
+//        });
+//        //把网络请求添加到请求队列中
+//        mRequestQueue.add(mStringRequest);
 
     }
 }

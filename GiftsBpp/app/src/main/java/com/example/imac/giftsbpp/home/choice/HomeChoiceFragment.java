@@ -15,6 +15,8 @@ import com.example.imac.giftsbpp.base.BaseFragment;
 import com.example.imac.giftsbpp.base.URLValues;
 import com.example.imac.giftsbpp.home.six.SixAdapter;
 import com.example.imac.giftsbpp.home.six.SixBean;
+import com.example.imac.giftsbpp.volley.NetHelper;
+import com.example.imac.giftsbpp.volley.NetListener;
 import com.google.gson.Gson;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
@@ -60,7 +62,7 @@ public class HomeChoiceFragment extends BaseFragment {
    private void bannern() {
         final View bannerView = LayoutInflater.from(getContext()).inflate(R.layout.my_banner_shabi,null);
         banner = (Banner) bannerView.findViewById(R.id.choic_banner);
-       StringRequest mStringRequest = new StringRequest(URLValues.HOME_BANNER, new Response.Listener<String>() {
+       StringRequest mStringRequest = new StringRequest(URLValues.HOME_BANNER,  new Response.Listener<String>() {
            @Override
            public void onResponse(String response) {
                 Gson gson = new Gson();
@@ -97,25 +99,38 @@ public class HomeChoiceFragment extends BaseFragment {
 
     //获取精选的网络数据
     private void request() {
-        //创建网络请求
-        StringRequest mStringRequest = new StringRequest(URLValues.HOME_CHOICE, new Response.Listener<String>() {
+        NetHelper.MyRequest(URLValues.HOME_CHOICE, HomeChoiceBean.class, new NetListener<HomeChoiceBean>() {
             @Override
-            public void onResponse(String response) {
+            public void successListener(HomeChoiceBean response) {
                 HomeChoiceListViewAdapter  HCadapter = new HomeChoiceListViewAdapter(getContext());
-                Gson gson = new Gson();
-                HomeChoiceBean homeChoiceBean = gson.fromJson(response,HomeChoiceBean.class);
-                HCadapter.setHomeChoiceBeen(homeChoiceBean);
+                HCadapter.setHomeChoiceBeen(response);
                 choice_lv.setAdapter(HCadapter);
 
+
             }
-        }, new Response.ErrorListener() {
+
             @Override
-            public void onErrorResponse(VolleyError error) {
+            public void errorListener(VolleyError error) {
 
             }
         });
-        //把网络数据添加到请求队列中
-        mRequestQueue.add(mStringRequest);
+        //创建网络请求
+//        StringRequest mStringRequest = new StringRequest(URLValues.HOME_CHOICE, new Response.Listener<String>() {
+//            @Override
+//            public void onResponse(String response) {
+//
+//                Gson gson = new Gson();
+//                HomeChoiceBean homeChoiceBean = gson.fromJson(response,HomeChoiceBean.class);
+//
+//            }
+//        }, new Response.ErrorListener() {
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//
+//            }
+//        });
+//        //把网络数据添加到请求队列中
+//        mRequestQueue.add(mStringRequest);
 
     }
     private void gridView() {

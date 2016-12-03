@@ -13,6 +13,8 @@ import com.android.volley.toolbox.Volley;
 import com.example.imac.giftsbpp.R;
 import com.example.imac.giftsbpp.base.BaseFragment;
 import com.example.imac.giftsbpp.base.URLValues;
+import com.example.imac.giftsbpp.volley.NetHelper;
+import com.example.imac.giftsbpp.volley.NetListener;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
@@ -50,29 +52,41 @@ public class ListFragment extends BaseFragment {
 
     //获取网络数据
     private void request() {
-        //创建网络请求
-        RequestQueue requestQueue = Volley.newRequestQueue(getContext());
-        StringRequest stringRequest = new StringRequest(URLValues.LIST_TITLE, new Response.Listener<String>() {
+        NetHelper.MyRequest(URLValues.LIST_TITLE, ListBean.class, new NetListener<ListBean>() {
             @Override
-            public void onResponse(String response) {
-
-                Gson gson = new Gson();
-                ListBean listBean = gson.fromJson(response, ListBean.class);
+            public void successListener(ListBean response) {
                 listAdapter = new ListAdapter(getChildFragmentManager());
                 viewPager.setAdapter(listAdapter);
-                listAdapter.setData(listBean);
+                listAdapter.setData(response);
                 tabLayout.setupWithViewPager(viewPager);
 
-
-
             }
-        }, new Response.ErrorListener() {
+
             @Override
-            public void onErrorResponse(VolleyError error) {
+            public void errorListener(VolleyError error) {
 
             }
         });
-        requestQueue.add(stringRequest);
+        //创建网络请求
+//        RequestQueue requestQueue = Volley.newRequestQueue(getContext());
+//        StringRequest stringRequest = new StringRequest(URLValues.LIST_TITLE, new Response.Listener<String>() {
+//            @Override
+//            public void onResponse(String response) {
+//
+//                Gson gson = new Gson();
+//                ListBean listBean = gson.fromJson(response, ListBean.class);
+//
+//
+//
+//
+//            }
+//        }, new Response.ErrorListener() {
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//
+//            }
+//        });
+//        requestQueue.add(stringRequest);
 
     }
 

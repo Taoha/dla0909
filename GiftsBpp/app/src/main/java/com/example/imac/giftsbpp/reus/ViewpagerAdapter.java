@@ -14,10 +14,11 @@ import java.util.List;
  */
 
 public class ViewpagerAdapter extends FragmentStatePagerAdapter {
-    private static List<TitleBean.DataBean.ChannelsBean> data;
+    private static TitleBean data;
 
-    public static void setData(List<TitleBean.DataBean.ChannelsBean> data) {
-        ViewpagerAdapter.data = data;
+    public void setData(TitleBean data) {
+        this.data = data;
+        notifyDataSetChanged();
     }
 
     public ViewpagerAdapter(FragmentManager fm) {
@@ -36,15 +37,15 @@ public class ViewpagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public int getCount() {
-        return data.size();
+        return data.getData().getChannels().size();
     }
 
     @Override
     public CharSequence getPageTitle(int position) {
-        return data.get(position).getName();
+        return data.getData().getChannels().get(position).getName();
     }
 
     public static String getMessage(int pos) {
-        return data.get(pos).getId() + "";
+        return data.getData().getChannels().get(pos).getId() + "";
     }
 }

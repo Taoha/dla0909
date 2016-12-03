@@ -15,4 +15,12 @@ public class URLValues {
     public static final String HOME_BANNER="http://api.liwushuo.com/v2/banners";
     //获取榜单的标题url
     public static final String LIST_TITLE = "http://api.liwushuo.com/v2/ranks_v2/ranks";
+    //获取分类攻略横向的url
+    public static final String KIND_RECY = "http://api.liwushuo.com/v2/columns";
+    //获取分类的Grid的url
+    public static final String KIND_GRID = "http://api.liwushuo.com/v2/channel_groups/all";
+    //获取分类单品的URL
+    public static final String SKU_URL = "http://api.liwushuo.com/v2/item_categories/tree";
+
+
 }

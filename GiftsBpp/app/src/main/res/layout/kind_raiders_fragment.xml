@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:descendantFocusability="blocksDescendants">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:text="栏目" />
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_alignParentRight="true"
+                android:id="@+id/strategy_one_all_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="查看全部>"
+                android:textSize="11sp"/>
+
+        </RelativeLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/kind_raiders_rv"
+            android:layout_width="match_parent"
+            android:layout_height="200dp">
+
+        </android.support.v7.widget.RecyclerView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical"
+            android:background="#FFF">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                >
+                <TextView
+                    android:id="@+id/strategy_two_type_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="品类"
+                    android:textSize="12sp"
+                    android:textColor="#998787"/>
+
+                <TextView
+                    android:layout_alignParentRight="true"
+                    android:id="@+id/strategy_two_all_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="查看全部>"
+                    android:textSize="11sp"
+                    android:textColor="#503C3C"/>
+            </RelativeLayout>
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="#FFF"
+            >
+            <GridView
+                android:id="@+id/grud_view1"
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                android:horizontalSpacing="5dp"
+                android:verticalSpacing="8dp"
+                android:numColumns="2"
+                android:scrollbars="none"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="5dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical"
+            android:background="#FFF">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:text="风格"
+                    android:textSize="12sp"
+                    android:textColor="#998787"
+                    android:layout_marginTop="15dp"/>
+
+
+
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+
+            android:background="#FFF">
+
+            <GridView
+                android:layout_marginTop="5dp"
+                android:id="@+id/grud_view2"
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                android:numColumns="2"
+                android:scrollbars="none"
+                android:horizontalSpacing="5dp"
+                android:verticalSpacing="8dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="5dp"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical"
+            android:background="#FFF">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp">
+
+                <TextView
+                    android:id="@+id/startegy_four_object_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+
+                    android:text="对象"
+                    android:textSize="12sp"
+                    android:textColor="#998787"/>
+
+
+                <TextView
+                    android:id="@+id/startegy_four_all_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:text="查看全部>"
+                    android:textColor="#503C3C"
+                    android:textSize="11sp" />
+            </RelativeLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FFF">
+
+            <GridView
+                android:id="@+id/grud_view3"
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                android:layout_margin="5dp"
+                android:numColumns="2"
+                android:scrollbars="none"
+                android:horizontalSpacing="5dp"
+                android:verticalSpacing="8dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="5dp"/>
+
+        </LinearLayout>
+
+
+   </LinearLayout>
+
+
+</ScrollView>
